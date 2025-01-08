@@ -1,0 +1,106 @@
+---
+title: "HPM 883 Paper Analysis"
+author: "Kevin Sullivan"
+date: '2024-01-29'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+# Paper Proposal Question: Difference by conference in draft status among power 5 college basketball players from 2011-2021
+
+library(readr)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(MASS)
+library(corrplot)
+library(bestglm)
+library(MASS)
+library(faraway)
+library(lars)
+library(caTools)
+library(e1071)
+library(cvms)
+library(caret)
+library(InformationValue)
+library(ISLR)
+library(rpart)
+library(rpart.plot)
+library(knitr)
+library(qwraps2)
+library(tibble)
+library(kableExtra)
+library(ggplot2)
+library(ggimage)
+library(margins)
+library(sjPlot)
+library(stargazer)
+
+# Preliminary Data Cleaning and Set Up
+
+b_dat = read.csv("CollegeBasketballPlayers2009-2021.csv")
+b_dat[is.na(b_dat)] = 0
+
+b_dat <- b_dat %>% arrange(b_dat$pid, desc(b_dat$year)) %>%
+  distinct(player_name, .keep_all = TRUE) %>% 
+  subset(select = -c(yr,type,Rec.Rank,X,X.1))
+
+# Creating simple statistics
+
+b_dat_simple = subset(b_dat, select = -c(Ortg, FTM, FTA, twoPM, twoPA, TPM, TPA, ftr, porpag, adjoe, pfr, ast.tov, rimmade, rimmade.rimmiss, midmade, midmade.midmiss, rimmade..rimmade.rimmiss., midmade..midmade.midmiss., dunksmade, dunksmiss.dunksmade, dunksmade..dunksmade.dunksmiss., drtg, adrtg, dporpag, bpm, obpm, dbpm, gbpm, ogbpm, dgbpm, treb))
+
+# 2011-2021 only
+b_dat_simple <- subset(b_dat_simple, year != 2009 & year != 2010)
+head(b_dat_simple)
+```
+
+```{r}
+# Make "pick" binomial
+
+b_dat_simple$pick[b_dat_simple$pick != 0] <- 1
+
+sum(b_dat_simple$pick != 0)
+
+# 523 draft picks
+  
+
+```
+
+
+```{r}
+# Select only Power 5 Conferences, use non-power 5 as reference
+
+b_dat_simple = subset(b_dat_simple, conf == "B10" | conf == "B12" | conf == "ACC" | conf == "SEC" | conf == "P12")
+
+head(b_dat_simple)
+
+sum(b_dat_simple$pick != 0)
+
+# 384 power 5 draft picks
+
+```
+
+
+
+```{r}
+# Logit Model
+
+logit_model = glm(pick ~ factor(conf) + pts* ast + stl* blk + oreb*dreb + mp + eFG,data = b_dat_simple, family = binomial)
+
+summary(logit_model)
+margins(logit_model)
+```
+
+```{r}
+write.csv(b_dat_simple, "Macintosh HD\\Users\\kevinsullivan\\Downloads\\b_dat_simple.csv", row.names=FALSE)
+
+```
+
+
+
+
