@@ -8,7 +8,7 @@ chances of getting drafted to the NBA.
 **Evaluation Metric:** Marginal Effects
 
 
-**Key Findings:** The ACC and SEC
+**Key Findings:** The ACC and SEC are the two best conferences at producing NBA level talent.
 
 
 Work was submitted to the University of Pennsylvania Journal of Sports Analytics and received favorable reviews. The project is currently being revised with the goal of resubmission.
