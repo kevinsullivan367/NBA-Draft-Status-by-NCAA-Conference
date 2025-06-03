@@ -2,6 +2,7 @@
 
 ## 📌 Summary  
 This project explores whether playing in a Power Five NCAA conference affects a basketball player's chance of being drafted into the NBA.  
+
 Using data from 2011–2021, I estimate the impact of conference affiliation using probit and instrumental variable (IV) models, while controlling for player performance and physical stats.
 
 ---
