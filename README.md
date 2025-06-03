@@ -1,29 +1,32 @@
-**🏀 Power Five and the NBA Draft**
+🏀 Power Five and the NBA Draft
+📌 Summary
+This project explores whether playing in a Power Five NCAA conference affects a basketball player's chance of being drafted into the NBA.
+Using data from 2011–2021, I estimate the impact of conference affiliation using probit and instrumental variable (IV) models, while controlling for player performance and physical stats.
 
-**Summary**
-
-This project analyzes how playing in a Power Five NCAA conference affects a basketball player's chances of being drafted into the NBA. Using data from 2011–2021, I run probit and instrumental variable (IV) models to estimate the impact of conference affiliation while controlling for performance and physical stats.
-
-**Key Question**
-
+❓ Key Question
 Does playing in a Power Five conference increase the chances of being drafted?
 
-**Data & Methods**
+📊 Data & Methods
+Data:
 
-Data: NCAA men’s basketball stats (2011–2021) from Sports Reference
+NCAA men’s basketball stats (2011–2021) from Sports Reference
 
 Methods:
 
 Probit regression
 
-Extended probit with IV to address endogeneity
+Extended probit with IV (to address endogeneity)
 
-Controls: Player stats, height/weight, year, and more
+Controls:
 
-**Main Finding**
+Player stats (e.g., points, assists)
 
-Even after controlling for performance and physical attributes, ACC and SEC players are significantly more likely to be drafted.
+Physical attributes (height/weight)
 
-**Software**
+Year fixed effects
 
-Stata (cleaning and analysis)
+🔍 Main Finding
+Even after controlling for performance and physical characteristics, ACC and SEC players are significantly more likely to be drafted.
+
+💻 Software
+Stata: Data cleaning and analysis
