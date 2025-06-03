@@ -1,14 +1,25 @@
-Sports analytics project using college basketball data from 2011-2021 to determine which conference maximizes the likelihood of an average college basketball player's
-chances of getting drafted to the NBA.
+**🏀 Power Five and the NBA Draft**
 
+**Summary**
+This project analyzes how playing in a Power Five NCAA conference affects a basketball player's chances of being drafted into the NBA. Using data from 2011–2021, I run probit and instrumental variable (IV) models to estimate the impact of conference affiliation while controlling for performance and physical stats.
 
-**Method Used:** Logistic Regression
+**Key Question**
+Does playing in a Power Five conference increase the chances of being drafted?
 
+**Data & Methods**
+Data: NCAA men’s basketball stats (2011–2021) from Sports Reference
 
-**Evaluation Metric:** Marginal Effects
+Methods:
 
+Probit regression
 
-**Key Findings:** The ACC and SEC are the two best conferences at producing NBA level talent.
+Extended probit with IV to address endogeneity
 
+Controls: Player stats, height/weight, year, and more
 
-Work was submitted to the University of Pennsylvania Journal of Sports Analytics and received favorable reviews. The project is currently being revised with the goal of resubmission.
+**Main Finding**x
+Even after controlling for performance and physical attributes, ACC and SEC players are significantly more likely to be drafted.
+
+**Software**
+
+Stata (cleaning and analysis)
