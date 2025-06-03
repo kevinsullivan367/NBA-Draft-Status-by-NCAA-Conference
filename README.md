@@ -1,4 +1,4 @@
-# 🏀 Power Five and the NBA Draft
+# 🏀 Power Five Conferences and the NBA Draft
 
 ## 📌 Summary  
 This project explores whether playing in a Power Five NCAA conference affects a basketball player's chance of being drafted into the NBA.  
